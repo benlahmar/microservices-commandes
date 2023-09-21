@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,6 +21,7 @@ public class Lignecommand {
 	@Transient
 	Produit produit;
 	
+	@JsonIgnore
 	@ManyToOne
 	Command command;
 	

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.entities.Client;
 
-@FeignClient(url = "http://localhost:8080", name="cusomerservice")
+@FeignClient( name="customer-service")
 public interface CustomerRemoteApi {
 
-	 @GetMapping("clients/{id}")
+	@GetMapping("clients/{id}")
 	public Client getclient(@PathVariable(name = "id") long idclient);
 	 
 	 

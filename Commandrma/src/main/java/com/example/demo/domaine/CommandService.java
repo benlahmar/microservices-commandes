@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Command;
 import com.example.demo.entities.Lignecommand;
+import com.example.demo.exceptions.NoSuchCommandException;
 import com.example.demo.infrastructure.ICommand;
 import com.example.demo.infrastructure.ILigneCommand;
 
@@ -86,7 +87,8 @@ public class CommandService implements IService{
 	}
 	@Override
 	public Command findcmd(long idc) {
-		return crepo.findById(idc).orElseThrow();
+		return crepo.findById(idc)
+				.orElseThrow(()-> new NoSuchCommandException("commande not exsiste"));
 		
 	}
 
